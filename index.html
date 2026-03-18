@@ -39,15 +39,36 @@ header p {
 
 .gallery img {
     width: 100%;
+    height: 250px;
+    object-fit: cover;
     border-radius: 12px;
-    transition: transform 0.4s ease, opacity 0.4s;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
 }
 
 .gallery img:hover {
     transform: scale(1.08);
-    opacity: 1;
     box-shadow: 0 15px 40px rgba(255,255,255,0.15);
 }
+
+/* FULLSCREEN VIEW */
+.lightbox {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
 }
 
 /* BUTTON */
@@ -88,10 +109,10 @@ footer {
 </header>
 
 <section class="gallery">
-  <img src="metal1.jpg" alt="Metal Print 1">
-  <img src="metal2.jpg" alt="Metal Print 2">
-  <img src="metal3.jpg" alt="Metal Print 3">
-  <img src="metal4.jpg" alt="Metal Print 4">
+  <img src="metal1.jpg" onclick="openImage(this.src)">
+  <img src="metal2.jpg" onclick="openImage(this.src)">
+  <img src="metal3.jpg" onclick="openImage(this.src)">
+  <img src="metal4.jpg" onclick="openImage(this.src)">
 </section>
 
 <div class="cta">
@@ -101,6 +122,22 @@ footer {
 <footer>
     © 2026 ELEMENT_13 — All rights reserved
 </footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeImage()">
+    <img id="lightbox-img">
+</div>
+
+<script>
+function openImage(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeImage() {
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
 
 </body>
 </html>
