@@ -1,92 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>ELEMENT_13</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #000;
-      color: #fff;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELEMENT_13</title>
 
-    header {
-      padding: 100px 20px 40px;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-    h1 {
-      font-size: 50px;
-      letter-spacing: 8px;
-      margin: 0;
-    }
+<style>
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #000;
+    color: #fff;
+}
 
-    p {
-      font-size: 18px;
-      opacity: 0.6;
-      margin-top: 10px;
-    }
+header {
+    text-align: center;
+    padding: 80px 20px 40px;
+}
 
-    .gallery {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 40px;
-    }
+header h1 {
+    font-size: 48px;
+    letter-spacing: 6px;
+}
 
-    .gallery img {
-      width: 280px;
-      margin: 15px;
-      border-radius: 16px;
-      transition: 0.4s;
-    }
+header p {
+    color: #aaa;
+}
 
-    .gallery img:hover {
-      transform: scale(1.08);
-    }
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
 
-    .cta {
-      margin: 60px 0;
-    }
+.gallery img {
+    width: 100%;
+    border-radius: 12px;
+    transition: transform 0.4s ease, opacity 0.4s;
+}
 
-    .cta button {
-      padding: 15px 30px;
-      font-size: 16px;
-      border: none;
-      border-radius: 30px;
-      background: white;
-      color: black;
-      cursor: pointer;
-    }
+.gallery img:hover {
+    transform: scale(1.05);
+    opacity: 0.85;
+}
 
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      opacity: 0.5;
-      font-size: 14px;
-    }
-  </style>
+/* BUTTON */
+.cta {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.cta a {
+    background: #fff;
+    color: #000;
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.cta a:hover {
+    background: #ccc;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    color: #777;
+    padding: 30px;
+    font-size: 14px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>ELEMENT_13</h1>
-  <p>High Definition Metal Photo Sublimation</p>
+    <h1>ELEMENT_13</h1>
+    <p>High Definition Metal Photo Sublimation</p>
 </header>
 
-<div class="gallery">
-  <img src="https://via.placeholder.com/400">
-  <img src="https://via.placeholder.com/400">
-  <img src="https://via.placeholder.com/400">
-</div>
+<section class="gallery">
+    <img src="metal1.jpg">
+    <img src="metal2.jpg">
+    <img src="metal3.jpg">
+    <img src="metal4.jpg">
+</section>
 
 <div class="cta">
-  <button>Order Now</button>
+    <a href="mailto:your@email.com">Order Now</a>
 </div>
 
 <footer>
-  © 2026 ELEMENT_13 — All rights reserved
+    © 2026 ELEMENT_13 — All rights reserved
 </footer>
 
 </body>
