@@ -8,9 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -26,7 +24,6 @@ body {
     overflow: hidden;
 }
 
-/* VIDEO FIX */
 .bg-video {
     position: absolute;
     top: 50%;
@@ -38,7 +35,6 @@ body {
     filter: brightness(0.4) blur(2px);
 }
 
-/* OVERLAY */
 .overlay {
     position: absolute;
     width: 100%;
@@ -46,7 +42,6 @@ body {
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), #000);
 }
 
-/* HERO CONTENT */
 .hero-content {
     position: relative;
     text-align: center;
@@ -101,87 +96,55 @@ body {
     box-shadow: 0 20px 50px rgba(255,255,255,0.15);
 }
 
-<section class="contact-info">
-    <h2>For Details Please Contact</h2>
-
-    <p style="color:#aaa; margin-bottom:30px;">
-        Custom metal prints made to order. Reach out for sizes, pricing, and special requests.
-    </p>
-
-    <!-- CONTACT BUTTON -->
-    <a href="mailto:your@email.com" class="contact-btn">
-        Email Me
-    </a>
-
-    <!-- SOCIAL LINKS -->
-    <div class="socials">
-        <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
-        <a href="https://tiktok.com/@yourusername" target="_blank">TikTok</a>
-        <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>
-    </div>
-</section>
-
-/* CONTACT */
-.contact {
-    text-align: center;
-    padding: 80px 20px;
-}
-
-.contact form {
-    max-width: 400px;
-    margin: auto;
-}
-
-.contact input,
-.contact textarea {
-    width: 100%;
-    padding: 14px;
-    margin: 10px 0;
-    border-radius: 10px;
-    border: none;
-}
-
-.contact button {
-    background: #fff;
-    color: #000;
-    padding: 14px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
+/* CONTACT SECTION */
 .contact-info {
     text-align: center;
     padding: 80px 20px;
 }
 
 .contact-info h2 {
-    font-size: 32px;
+    font-size: 34px;
     margin-bottom: 10px;
 }
 
-.contact-btn {
-    display: inline-block;
-    background: #fff;
-    color: #000;
-    padding: 14px 28px;
-    border-radius: 30px;
-    text-decoration: none;
+.contact-info p {
+    color: #aaa;
     margin-bottom: 30px;
 }
 
-.socials a {
-    margin: 0 10px;
-    color: #fff;
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 14px 28px;
+    border-radius: 30px;
     text-decoration: none;
-    border-bottom: 1px solid #555;
-    padding-bottom: 4px;
+    font-weight: 600;
     transition: 0.3s;
 }
 
-.socials a:hover {
-    color: #ccc;
+/* EMAIL */
+.email-btn {
+    background: #fff;
+    color: #000;
 }
+
+/* WHATSAPP */
+.whatsapp-btn {
+    background: #25D366;
+    color: #000;
+}
+
+/* VIBER */
+.viber-btn {
+    background: #7360F2;
+    color: #fff;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
 /* LIGHTBOX */
 .lightbox {
     position: fixed;
@@ -238,39 +201,25 @@ footer {
   <img src="metal4.png" onclick="openImage(this.src)">
 </section>
 
-<section class="pricing">
-    <h2>Pricing</h2>
+<!-- CONTACT SECTION -->
+<section class="contact-info">
+    <h2>For Details Please Contact</h2>
+    <p>Custom metal prints made to order. Message me directly.</p>
 
-    <div class="price-grid">
-        <div class="price-box">
-            <h3>Small</h3>
-            <p>8x10 Metal</p>
-            <p>$40</p>
-        </div>
+    <!-- EMAIL -->
+    <a href="mailto:zedgina1982@gmail.com" class="btn email-btn">
+        📧 Email
+    </a>
 
-        <div class="price-box">
-            <h3>Medium</h3>
-            <p>12x18 Metal</p>
-            <p>$70</p>
-        </div>
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/14164598802" target="_blank" class="btn whatsapp-btn">
+        💬 WhatsApp
+    </a>
 
-        <div class="price-box">
-            <h3>Large</h3>
-            <p>16x24 Metal</p>
-            <p>$120</p>
-        </div>
-    </div>
-</section>
-
-<section class="contact">
-    <h2>Place an Order</h2>
-
-    <form action="https://formspree.io/f/yourID" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Describe your order..." required></textarea>
-        <button type="submit">Send Order</button>
-    </form>
+    <!-- VIBER -->
+    <a href="viber://chat?number=%2B14164598802" class="btn viber-btn">
+        📱 Viber
+    </a>
 </section>
 
 <footer>
