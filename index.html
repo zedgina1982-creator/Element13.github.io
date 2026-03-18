@@ -8,6 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -15,71 +19,150 @@ body {
     color: #fff;
 }
 
-/* HERO VIDEO */
+/* HERO */
 .hero {
     position: relative;
-    height: 80vh;
+    height: 100vh;
     overflow: hidden;
 }
-<button onclick="toggleSound()" id="soundBtn" style="
-position: absolute;
-bottom: 20px;
-right: 20px;
-padding: 10px 15px;
-border-radius: 20px;
-border: none;
-cursor: pointer;
-">
-🔇 Sound
-</button>
+
+/* VIDEO FIX */
 .bg-video {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
     transform: translate(-50%, -50%);
-    z-index: -1;
-    filter: brightness(0.5);
+    object-fit: cover;
+    filter: brightness(0.4) blur(2px);
 }
 
+/* OVERLAY */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), #000);
+}
+
+/* HERO CONTENT */
 .hero-content {
     position: relative;
     text-align: center;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 2;
 }
 
 .hero-content h1 {
-    font-size: 48px;
-    letter-spacing: 6px;
+    font-size: 56px;
+    letter-spacing: 8px;
 }
 
 .hero-content p {
     color: #ccc;
+    font-size: 18px;
+}
+
+/* SOUND BUTTON */
+.sound-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 18px;
+    border-radius: 30px;
+    border: none;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    cursor: pointer;
+    z-index: 3;
 }
 
 /* GALLERY */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 40px;
+    gap: 25px;
+    padding: 60px;
 }
 
 .gallery img {
     width: 100%;
-    height: 250px;
+    height: 260px;
     object-fit: cover;
-    border-radius: 12px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer;
+    border-radius: 16px;
+    transition: 0.4s;
 }
 
 .gallery img:hover {
     transform: scale(1.08);
-    box-shadow: 0 15px 40px rgba(255,255,255,0.15);
+    box-shadow: 0 20px 50px rgba(255,255,255,0.15);
+}
+
+/* PRICING */
+.pricing {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.pricing h2 {
+    font-size: 34px;
+    margin-bottom: 40px;
+}
+
+.price-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.price-box {
+    background: rgba(255,255,255,0.05);
+    margin: 15px;
+    padding: 30px;
+    border-radius: 20px;
+    width: 240px;
+    backdrop-filter: blur(10px);
+}
+
+.price-box h3 {
+    margin-bottom: 10px;
+}
+
+.price-box p {
+    color: #aaa;
+}
+
+/* CONTACT */
+.contact {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.contact form {
+    max-width: 400px;
+    margin: auto;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+}
+
+.contact button {
+    background: #fff;
+    color: #000;
+    padding: 14px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
 
 /* LIGHTBOX */
@@ -90,63 +173,47 @@ cursor: pointer;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.95);
     justify-content: center;
     align-items: center;
-    z-index: 1000;
 }
 
 .lightbox img {
     max-width: 90%;
     max-height: 90%;
-    border-radius: 10px;
-}
-
-/* BUTTON */
-.cta {
-    text-align: center;
-    margin: 60px 0;
-}
-
-.cta a {
-    background: #fff;
-    color: #000;
-    padding: 14px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.cta a:hover {
-    background: #ccc;
+    border-radius: 12px;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
     color: #777;
-    padding: 30px;
-    font-size: 14px;
+    padding: 40px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO WITH VIDEO -->
 <header class="hero">
-    <video autoplay muted loop playsinline class="bg-video">
+
+    <video id="bgVideo" autoplay muted loop playsinline class="bg-video">
         <source src="promo.mp4" type="video/mp4">
     </video>
+
+    <div class="overlay"></div>
 
     <div class="hero-content">
         <h1>ELEMENT_13</h1>
         <p>High Definition Metal Photo Sublimation</p>
     </div>
+
+    <button class="sound-btn" onclick="toggleSound()" id="soundBtn">
+        🔇 Sound
+    </button>
+
 </header>
 
-<!-- GALLERY -->
 <section class="gallery">
   <img src="metal1.jpg" onclick="openImage(this.src)">
   <img src="metal2.jpg" onclick="openImage(this.src)">
@@ -154,16 +221,45 @@ footer {
   <img src="metal4.png" onclick="openImage(this.src)">
 </section>
 
-<!-- BUTTON -->
-<div class="cta">
-    <a href="mailto:your@email.com">Order Now</a>
-</div>
+<section class="pricing">
+    <h2>Pricing</h2>
+
+    <div class="price-grid">
+        <div class="price-box">
+            <h3>Small</h3>
+            <p>8x10 Metal</p>
+            <p>$40</p>
+        </div>
+
+        <div class="price-box">
+            <h3>Medium</h3>
+            <p>12x18 Metal</p>
+            <p>$70</p>
+        </div>
+
+        <div class="price-box">
+            <h3>Large</h3>
+            <p>16x24 Metal</p>
+            <p>$120</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact">
+    <h2>Place an Order</h2>
+
+    <form action="https://formspree.io/f/yourID" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Describe your order..." required></textarea>
+        <button type="submit">Send Order</button>
+    </form>
+</section>
 
 <footer>
     © 2026 ELEMENT_13 — All rights reserved
 </footer>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeImage()">
     <img id="lightbox-img">
 </div>
@@ -176,6 +272,20 @@ function openImage(src) {
 
 function closeImage() {
     document.getElementById("lightbox").style.display = "none";
+}
+
+function toggleSound() {
+    const video = document.getElementById("bgVideo");
+    const btn = document.getElementById("soundBtn");
+
+    video.muted = !video.muted;
+
+    if (video.muted) {
+        btn.innerText = "🔇 Sound";
+    } else {
+        btn.innerText = "🔊 Sound On";
+        video.play();
+    }
 }
 </script>
 
